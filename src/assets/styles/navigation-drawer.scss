@@ -1,0 +1,25 @@
+.iniciar-tramite{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.item-navigation{
+    display: flex;
+    flex-direction: row;
+    gap: 7px;
+    align-items: center;
+}
+
+
+.toogle-navigation{
+    position: absolute;
+    right: -15px;
+    background-color: white;
+    top: 52px;
+    transition: all 1s;
+    &.active{
+        rotate: 180deg;
+    }
+}
