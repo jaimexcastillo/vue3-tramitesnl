@@ -1,0 +1,335 @@
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
+#app{
+	width: 100%;
+}
+
+.card-header-new{
+    display: flex;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.form-login{
+    
+    a{
+        color: $gold !important;
+    }
+}
+
+.input-login{
+
+    &:focus{
+        border-color:rgba($gold, .3) !important;
+        box-shadow: 0 0 0 0.2rem rgba($gold, .3) !important; 
+    }
+}
+
+.btn-accent{
+    background-color:$accent !important; 
+    border-color: $accent !important;
+    border-radius: 10px;
+    min-width: 78px;
+    padding: 0 19.5555555556px;
+    font-size: 1.25rem!important;
+    font-weight: 500;
+    letter-spacing: .0125em!important;
+    color:$white !important;
+}
+
+.btn-gold{
+    background-color:$pantone !important; 
+    border-color: $pantone !important;
+    border-radius: 10px;
+    min-width: 78px;
+    padding: 0 19.5555555556px;
+    font-size: 1.25rem!important;
+    font-weight: 500;
+    letter-spacing: .0125em!important;
+    color:$white !important;
+}
+.pa-6{
+    padding: 24px!important;
+}
+
+.pa-6.card{
+    border-radius: 4px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-width: thin;
+    display: block;
+    max-width: 100%;
+    outline: none;
+    text-decoration: none;
+    transition-property: box-shadow,opacity;
+    overflow-wrap: break-word;
+    position: relative;
+    background-color: #fff;
+    color: rgba(0,0,0,.87);
+    white-space: normal;
+    border: none;
+    min-width: 500px;
+    max-width: 570px;
+	// box-shadow: 0px 0px 17px 1px rgba(0,0,0,0.16);
+	// -webkit-box-shadow: 0px 0px 17px 1px rgba(0,0,0,0.16);
+	// -moz-box-shadow: 0px 0px 17px 1px rgba(0,0,0,0.16);
+}
+
+.fix-position{
+	margin-left: 240%;
+}
+
+.card-position-login{
+    display: flex !important;    
+    align-content: center !important;
+    justify-content: center !important;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.no-decoration{
+    text-decoration: none !important;
+}
+.aux-mobile{
+    z-index: 1
+}
+.not-on-desktop{
+    display: none;
+}
+.tramites{
+    z-index:20;
+    font-size:3vw;
+    color: $gold
+}
+
+.bienvenido{
+    z-index:20;
+    font-size:5vw;
+    color: $gold ;
+    height:5.4vw
+}
+
+.bienvenido-corchete{
+    height: 100%;
+    width:52%;
+    position:absolute;
+    left: 0;
+    z-index:12
+}
+
+.marca-awa{
+    position: absolute;
+    right: 5%;
+    bottom: 2rem;
+    width: 150px;
+    height: 150px;
+}
+.montserrat{
+    font-family: "Montserrat" !important;
+}
+
+.v-application.fondo_login fieldset{
+    border-bottom: 0px !important
+}
+/* .v-text-field--filled > .v-input__control > .v-input__slot, .v-text-field--full-width > .v-input__control > .v-input__slot, .v-text-field--outlined > .v-input__control > .v-input__slot{
+    min-height: unset !important;
+} */
+
+.v-text-field--full-width .v-input__prepend-outer, .v-text-field--full-width .v-input__prepend-inner, .v-text-field--full-width .v-input__append-inner, .v-text-field--full-width .v-input__append-outer, .v-text-field--enclosed .v-input__prepend-outer, .v-text-field--enclosed .v-input__prepend-inner, .v-text-field--enclosed .v-input__append-inner, .v-text-field--enclosed .v-input__append-outer{
+    margin-top: 0 !important;
+}
+
+.v-text-field--focused{
+    transition: unset !important;   
+}
+
+
+.relative {position: relative}
+.absolute {position: absolute}
+.fb-native-button{width: 100%;}
+.fb-native-button button{
+    height: 36px;
+    background-image: none !important;
+    padding: 0 !important;
+    min-width: 0 !important;
+    width: 100%
+}
+.fb-native-button button img, .fb-native-button button .spinner{display: none}
+.outlined{
+        border-radius: 4px;
+        
+}
+
+.form-ejemplo{
+   
+}
+.fondo-login{
+    position: absolute;
+    height: 50%;
+    width: 100%;
+    background-color: #efe8dd !important;
+    z-index: 0;
+    bottom:0;
+    left: 0;
+}
+.content-img{
+    max-width: 100%;
+    min-width: 100%;
+    height: auto;
+    content: url("../../../src/assets/img/corchete-bienvenido.svg");
+}
+.v-application .error--text{
+    color: grey !important;
+}
+.theme--light.v-divider {
+    border-color: #af8c5559;
+    height: 3px !important;
+    border-width: thin 0px  1px  0px;
+}
+.mobile-title{
+    position:absolute;
+    margin-top:-4vw;
+    margin-left:7vw
+}
+.logo_genl{
+    width: 20%;
+}
+.logo_genl-30{
+    width: 30%;
+}
+@media only screen and (max-width: 1024px) {
+
+    .pa-6.card{
+        min-width: unset !important;
+    }
+    
+    .aux-mobile{
+        z-index: 11 !important
+    }
+    .not-on-desktop{
+        display: inline-block;
+    }
+    .mobile-title{
+        margin-top: 60vw;
+        margin-left:22vw
+    }
+    .mobile-order{
+        margin-top: -70%;
+    }
+    .marca-awa{
+        position: absolute;
+        right: 5%;
+        bottom: 2rem;
+        width: 100px;
+        height: 100px;
+    }
+    .logo_genl{
+        width: 100px !important;
+    }
+
+    .bienvenido-corchete{
+        position: relative;
+        width: 100%;
+        margin-top: -100%;
+        left: 0;
+        z-index: 21;
+    }
+
+    .content-img{
+        max-width: 200%;
+        min-width: 200%;
+        height: auto;
+        content: url("../../../src/assets/img/corchete-azul-11.svg")
+    }
+    .fondo-login{
+        position: absolute;
+        height: 21%;
+        width: 100%;
+        background-color: #fff !important;
+        z-index: 0;
+        bottom: 0;
+        left: 0;
+    }
+    .v-card__title{
+        padding: 2px
+    }
+    .v-card__text{
+        padding: 0
+    }
+    .v-application .headline{
+        font-size: 1rem !important;
+        padding: 0 !important
+    }
+
+    .leon-mobile{
+        width: 4rem !important;
+    }
+
+    .bienvenido{
+        font-size:7vw;
+        height:9vw;
+        // font-family: 'PoppinsMedium';
+    }
+    
+    .tramites{
+        z-index:20;
+        font-size:3vw;
+        color: $gold;
+        letter-spacing: .3rem;
+        
+    }
+    .display-none{
+        display: none;
+    }
+    .unset-center-mobile{
+        margin-top: -15rem;
+    }
+}
+
+ @media only screen and (max-width: 774px) {
+    .mobile-card-placement{
+        height: 75vh !important;
+        justify-content: center;
+    }
+    .mobile-title{
+        margin-top: 20vw;
+
+    }
+    .mobile-order{
+        margin-top: -40%;
+    }
+    .leon-mobile{
+        width: 2.5rem !important;
+    }
+
+    .bienvenido{
+        font-size:9vw;
+        height:12vw;
+    }
+    
+    .tramites{
+        z-index:20;
+        font-size:5vw;
+        color: $gold;
+        letter-spacing: .3rem            
+    }
+    .display-none{
+        display: none;
+    }
+    .unset-center-mobile{
+        margin-top: -15rem;
+    }
+}
+@media only screen and (max-width: 540px) {
+    .unset-center-mobile{
+        margin-top: 0rem;
+    }
+    .v-application .pa-6{
+        padding: 0px !important;
+    }
+}
