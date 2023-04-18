@@ -1,60 +1,73 @@
 import { createWebHistory, createRouter } from "vue-router";
 import Login from "../views/Login.vue";
 import Layout from '../views/Layout.vue'
-import About  from '../views/About.vue'
+import listadoTramites  from '../views/listadoTramites.vue'
+import ListadoNuevoTramite  from '../views/ListadoNuevoTramite.vue'
 import Tramite from '../views/Tramite.vue'
-
+import Dashboard from '../views/Dashboard.vue'
 const routes = [
   {
     path: '/',
     component: Layout,
     children: [
       {
-        path: '/inicio',
-        name: 'Inicio',
-        component: Tramite,
+        path: '/nuevo-tramite',
+        name: 'Nuevo Tramite',
+        component: ListadoNuevoTramite,
+        auth: true
+      },
+      {
+        path: '/dashboard',
+        name: 'Dashboard',
+        component: Dashboard,
         auth: true
       },
       {
         path: '/tramites/borradores/:id',
         name: 'Borradores',
-        component: About,
+        component: listadoTramites,
         auth: true
       },
       {
         path: '/tramites/pendiente-de-pago/:id',
         name: 'Pendiente de pago',
-        component: About,
+        component: listadoTramites,
         auth: true
       },
       {
         path: '/tramites/pendiente-de-pago-con-referencia/:id',
         name: 'Pendiente de pago con referencia',
-        component: About,
+        component: listadoTramites,
         auth: true
       },
       {
         path: '/tramites/en-espera-de-atencion/:id',
         name: 'En espera de atencion',
-        component: About,
+        component: listadoTramites,
         auth: true
       },
       {
         path: '/tramites/en-curso/:id',
         name: 'En curso',
-        component: About,
+        component: listadoTramites,
         auth: true
       },
       {
         path: '/tramites/por-firmar/:id',
         name: 'Por firmar',
-        component: About,
+        component: listadoTramites,
         auth: true
       },
       {
         path: '/tramites/finalizado/:id',
         name: 'Finalizado',
-        component: About,
+        component: listadoTramites,
+        auth: true
+      },
+      {
+        path: '/detalle-tramite/:id',
+        name: 'detalle tramite',
+        component: Tramite,
         auth: true
       },
     ]

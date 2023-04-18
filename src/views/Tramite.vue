@@ -1,12 +1,10 @@
+<script>
+
+</script>
 <template>
-  <div><h1>dexter</h1></div>
+  <div><Wizard /></div>
 </template>
 
-<script>
-export default {
-
-}
-</script>
 
 <style>
 

@@ -57,7 +57,7 @@
 									<div class="fv-plugins-message-container"></div>
 							</div>
                                
-							<div class="form-group fv-plugins-icon-container px-6">
+							<div class="form-group fv-plugins-icon-container px-6 mt-2">
 								<input
 									class="form-control form-control-solid bg-white border-color py-5 px-6"
 									type="password"

@@ -6,7 +6,7 @@
         <v-navigation-drawer v-model="drawer" permanent :rail="rail" @click="rail=false">
             <div class="iniciar-tramite">
 
-                <router-link to="/inicio">
+                <router-link to="/nuevo-tramite">
                     <v-btn
                         class="boton boton_primario"
                         variant="text"
@@ -31,7 +31,7 @@
 
             <v-list class="d-flex flex-column" :class="!rail && 'mx-6' ">
                 <v-list-item>
-                    <router-link to="/inicio"> 
+                    <router-link to="/dashboard"> 
                         <div class="item-navigation">
                             <v-icon icon="mdi-home"> </v-icon> 
                             

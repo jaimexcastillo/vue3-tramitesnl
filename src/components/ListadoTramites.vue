@@ -21,7 +21,7 @@ import { useRoute } from 'vue-router'
     const estatusTramites = 1
     const comunidadSSP = 1
     
-    const type = ref(route.params.id)
+    let type = ref(route.params.id)
     let pages = ref([0])
     let loading = ref(true)
     let tramitesFiltrados = ref([])
@@ -37,24 +37,16 @@ import { useRoute } from 'vue-router'
         await getTramites()
     })
     
-    watch(type, async (newType, oldType) => {
-        console.log('type nuevo');
+    watch(route, async (newType, oldType) => {
         loading = true
+        type.value = newType.params.id
         await getTramites()
         loading = false
     })
-    
-    watch(
-    route.params,
-    () => {
-      console.log(route.params.id);
-    },
-    {deep: true, immediate: true,}
-    )
+
 
 
     const getTramites = async () => {
-        //todo
         const buscarTramites = await  store.doSearchTramites(porPage.value, type.value, currentPage.value, dateRange.value, searchString.value, searchBy.value)
         tramites = buscarTramites.tickets;
         totalItems = buscarTramites?.totals.global

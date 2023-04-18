@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from "vue"
+import router from "../router";
 
     const props = defineProps(['tramite', 'type', 'group', 'cartComponent', 'ticket'])
     const solicitante = ref({})
@@ -53,7 +54,7 @@ import { ref } from "vue"
                                 <span v-if="tramite.loadingSign"><i class="fas fa-spinner fa-spin"></i></span>
                                 <span v-if="!tramite.loadingSign"><i :class="tramite.por_firmar == 1 ? 'fas fa-check-circle' : 'fas fa-plus-circle'"></i> {{ tramite.por_firmar == 1 ? 'DESELECCIONAR' : 'PREPARAR PARA FIRMAR' }}</span>
                             </button>
-                            <a v-on:click="goTo(tramite)" class="btn btn-sm btn-primary font-weight-bolder text-uppercase text-white" v-if="!ticket">
+                            <a v-on:click="router.push(`/detalle-tramite/${tramite.id_tramite}`)" class="btn btn-sm btn-primary font-weight-bolder text-uppercase text-white" v-if="!ticket">
                                 INICIAR TRAMITE
                             </a>
 

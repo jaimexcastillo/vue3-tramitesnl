@@ -9,7 +9,7 @@ export const useLogin = defineStore('login', () => {
     const url = 'http://10.153.162.53'
    
     async function doLoginPinia(username, password){
-      console.log('en store')
+      
       const response =  await fetch(url+'/login', {
         headers: {
           'Authorization': 'Basic ' + btoa(username + ":" + password)
@@ -36,7 +36,7 @@ export const useLogin = defineStore('login', () => {
             'created_at'  : new Date(), 
             'until_at':  sessionData.response.expires_in 
           }
-          console.log(session);
+          
           
           if(!sessionStorage.getItem('user') && session){
             console.log('session',session);
