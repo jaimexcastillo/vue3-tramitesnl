@@ -14,7 +14,7 @@ import { getCurrentInstance, ref, toRefs } from "vue";
     const showMensajes =false
     const files =[]
     const file = null
-    const consulta_api =''
+    const consulta_api = ''
     const panel = ref([0,1,2,3,4])
     const disabled = []
     const ajax = null
@@ -328,29 +328,29 @@ import { getCurrentInstance, ref, toRefs } from "vue";
 													v-on:estadoSelected="estadoSelected($event)"
 													:estado="estado"
                                                 />
-												<!-- <option-component 
+												<Radio 
 													v-else-if="campo.tipo === 'option'"
 													:campo="campo" 
 													:showMensajes="showMensajes" 
 													:estadoFormulario="comprobarEstadoFormularioCount"
 													@updateForm="updateForm" 
-													:updateIt="updates[campo.campo_id + '-' + campo.relationship ]">
-												</option-component>
-												<textbox-component
+													:updateIt="updates[campo.campo_id + '-' + campo.relationship ]"
+                                                />
+												<Textbox
 													v-else-if="campo.tipo === 'textbox' && (!campo.condition || campo.condition.view(agrupaciones))"
 													:campo="campo" 
 													:showMensajes="showMensajes" 
 													:estadoFormulario="comprobarEstadoFormularioCount"
-													@updateForm="updateForm">
-												</textbox-component>
-												<checkbox-component 
+													@updateForm="updateForm"
+                                                />
+												<Checkbox 
 													v-else-if="campo.tipo === 'checkbox'"
 													:campo="campo" 
 													:showMensajes="showMensajes" 
 													:estadoFormulario="comprobarEstadoFormularioCount"
-													@updateForm="updateForm">
-												</checkbox-component>
-												<file-component
+													@updateForm="updateForm"
+                                                />
+												<File
 													v-else-if="campo.tipo == 'file' && JSON.parse(campo.caracteristicas).tipo != 'expediente_validacion_excel'"
 													:campo="campo" 
 													:showMensajes="showMensajes" 
@@ -358,8 +358,8 @@ import { getCurrentInstance, ref, toRefs } from "vue";
 													:tipoTramite="tipoTramite"
 													@updateForm="updateForm" :files="filesPrecargados"
 													@validarFormulario="validarFormulario"
-												></file-component>
-												<results-component 
+												/>
+												<Results 
 													v-else-if="campo.tipo === 'results'"
 													:campo="campo" 
 													:showMensajes="showMensajes" 
@@ -371,9 +371,8 @@ import { getCurrentInstance, ref, toRefs } from "vue";
 													:loading="loading"
 													:infoExtra="infoExtra"
 													v-on:expedienteSeleccionado="updateExpedienteSeleccionado($event)"
-													>
-												</results-component>
-												<expediente-excel-component  
+											    />
+												<ExpedienteExcel  
 													v-else-if="JSON.parse(campo.caracteristicas).tipo == 'expediente_validacion_excel'"
 													:campo="campo" 
 													:showMensajes="showMensajes" 
@@ -381,9 +380,8 @@ import { getCurrentInstance, ref, toRefs } from "vue";
 													@updateForm="updateForm" :files="files"
 													@validarFormulario="validarFormulario"
 													@processGrupal="processGrupal"
-													>
-												</expediente-excel-component>
-												<enajenantes-component v-else-if="campo.tipo == 'enajenante'" 
+												/>
+												<!-- <enajenantes-component v-else-if="campo.tipo == 'enajenante'" 
 												:campo="campo" 
 													:showMensajes="showMensajes" 
 													:estadoFormulario="comprobarEstadoFormularioCount"

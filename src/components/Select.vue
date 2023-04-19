@@ -11,8 +11,8 @@ import { getCurrentInstance, onMounted, ref, toRefs } from "vue"
 
     onMounted(() => {
 
-      if(campo.nombre== "Cambio de divisas" && !campo.valor){
-          campo.valor = {clave: "PESOS", nombre: "Pesos"}
+      if(campo.value.nombre== "Cambio de divisas" && !campo.value.valor){
+          campo.value.valor = {clave: "PESOS", nombre: "Pesos"}
         validar();
       }
       
@@ -21,15 +21,15 @@ import { getCurrentInstance, onMounted, ref, toRefs } from "vue"
     })
 
     const setOpciones = async () => {
-          if( campo.nombre == 'Estado'){
+          if( campo.value.nombre == 'Estado'){
             let url = 'http://10.153.162.47' + "/obtener-estados" ; 
             console.log(url);
-            let options = await this.obtenerOptions(url);
+            let options = await obtenerOptions(url);
             options = options; 
           }
-          if( campo.nombre == 'Municipio'){
+          if( campo.value.nombre == 'Municipio'){
             let url =  'http://10.153.162.47' + "/obtener-municipios/" + this.estado.clave ;  
-            let options = await this.obtenerOptions(url);
+            let options = await obtenerOptions(url);
             options = options.map( option => {
               option.claveEstado = estado.clave;
               return option;
@@ -45,40 +45,40 @@ import { getCurrentInstance, onMounted, ref, toRefs } from "vue"
     const validar = () => {
           let requeridoValido = true;
           let caracteristicas = {};
-          campo.mensajes = [];
-            
+          campo.value.mensajes = [];
+
           try {
-            caracteristicas = JSON.parse(campo.caracteristicas + '');
+            caracteristicas = JSON.parse(campo.value.caracteristicas + '');
           }catch(err){
             console.log(err);
           }
           if( caracteristicas.hasOwnProperty('required') && caracteristicas.required === 'true') {
-            if(campo.tipo == 'multiple'){
-              requeridoValido =  campo.valor && campo.valor.length > 0; 
+            if(campo.value.tipo == 'multiple'){
+              requeridoValido =  campo.value.valor && campo.value.valor.length > 0; 
             } else {
-              requeridoValido =  !!campo.valor; 
+              requeridoValido =  !!campo.value.valor; 
             }
             if( !requeridoValido ){
               let mensaje = { 
                 tipo:'required',
-                mensajeStr: "El campo " + campo.nombre.toLocaleLowerCase() + " es requerido"
+                mensajeStr: "El campo " + campo.value.nombre.toLocaleLowerCase() + " es requerido"
               }
-              campo.mensajes.push( mensaje );
+              campo.value.mensajes.push( mensaje );
             }
           }
-          campo.valido = requeridoValido;
-          emit('updateForm', campo);
-          instance?.proxy?.$forceUpdate();
+          campo.value.valido = requeridoValido;
+          emit('updateForm', campo.value);
+          // instance?.proxy?.$forceUpdate();
 
     }
 
     // created 
-    options.value = JSON.parse(props.campo?.caracteristicas).opciones;
-    if(options && options.length > 0){
-        if(options && options[0]["clave"] && options[0]["nombre"]){
-        options = options;
+    options.value = JSON.parse(campo?.value.caracteristicas).opciones;
+    if(options.value && options.value.length > 0){
+        if(options.value && options.value[0]["clave"] && options.value[0]["nombre"]){
+        options.value = options.value;
         } else {
-        options= options.map( (opcion, key) =>{
+        options.value= options.value.map( (opcion, key) =>{
             let nombre = opcion[Object.keys(opcion)];
             let clave = Object.keys(opcion)[0];
             let newOption = { clave, nombre }
@@ -87,17 +87,16 @@ import { getCurrentInstance, onMounted, ref, toRefs } from "vue"
         }
     }
     
-    // validar();
+    validar();
     setOpciones();
 
-    const x = [1,2,3]
 </script>
 
 <template>
     <div class=" fv-plugins-icon-container" v-if="!campo.ocultar">
         <VueMultiselect 
             v-model="campo.valor" 
-            :options="x" 
+            :options="options" 
             :multiple="campo.tipo == 'multiple'" 
             label="nombre" 
             track-by="clave" 

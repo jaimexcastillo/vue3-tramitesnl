@@ -20,6 +20,12 @@ import CamposTramite from './components/CamposTramite.vue'
 import Input from './components/Input.vue'
 import Number from './components/Number.vue'
 import Select from './components/Select.vue'
+import Radio from './components/Radio.vue'
+import Textbox from './components/Textbox.vue'
+import Checkbox from './components/Checkbox.vue'
+import File from './components/File.vue'
+import Results from './components/Results.vue'
+import ExpedienteExcel from './components/ExpedienteExcel.vue'
 
 import router from './router'
 
@@ -52,7 +58,12 @@ app
     .component('Input', Input)
     .component('Number', Number)
     .component('Select', Select)
-    
+    .component('Radio', Radio)
+    .component('Textbox', Textbox)
+    .component('Checkbox' , Checkbox)
+    .component('File', File)
+    .component('Results', Results)
+    .component('ExpedienteExcel', ExpedienteExcel)
 
 
 app 
