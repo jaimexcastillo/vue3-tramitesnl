@@ -26,6 +26,7 @@ import Checkbox from './components/Checkbox.vue'
 import File from './components/File.vue'
 import Results from './components/Results.vue'
 import ExpedienteExcel from './components/ExpedienteExcel.vue'
+import Enajenantes from './components/Enajenantes.vue'
 
 import router from './router'
 
@@ -64,6 +65,7 @@ app
     .component('File', File)
     .component('Results', Results)
     .component('ExpedienteExcel', ExpedienteExcel)
+    .component('Enajenantes', Enajenantes)
 
 
 app 

@@ -381,14 +381,14 @@ import { getCurrentInstance, ref, toRefs } from "vue";
 													@validarFormulario="validarFormulario"
 													@processGrupal="processGrupal"
 												/>
-												<!-- <enajenantes-component v-else-if="campo.tipo == 'enajenante'" 
-												:campo="campo" 
+												 <Enajenantes
+                                                     v-else-if="campo.tipo == 'enajenante'" 
+												    :campo="campo" 
 													:showMensajes="showMensajes" 
 													:estadoFormulario="comprobarEstadoFormularioCount"
-													@updateForm="updateForm" :configCostos="configCostos" :updateListadoExpedientes="updateListadoExpedientes" >
-														
-													</enajenantes-component>
-												<table-component 
+													@updateForm="updateForm" :configCostos="configCostos" :updateListadoExpedientes="updateListadoExpedientes" 
+                                                />	
+												<!--<table-component 
 													:propietario="JSON.parse(campo.caracteristicas).propietario"
 													:campo="campo"
 													:expediente="expediente"
