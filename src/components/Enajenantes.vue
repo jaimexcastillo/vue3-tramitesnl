@@ -1,4 +1,7 @@
 <script setup>
+import { useVuelidate } from '@vuelidate/core'
+import { computed, toRefs } from 'vue'
+
     const emit = defineEmits(["updateForm"])
     const props =  defineProps([{
                     campo:{
@@ -21,6 +24,51 @@
                         default:0
                     },
     }])
+    const {campo, estadoFormulario, showMensajes, configCostos, updateListadoExpedientes} = toRefs(props)
+
+    const v$ = useVuelidate(rules, state, { $lazy: true })
+    const state = reactive({})
+    const rules = {
+        porcentajeVenta:{
+            isMayorQuePorcentajeAsignado(value) {
+                return this.porcentajeTotalCompra <= value
+            },
+            isPorcentajeComplete(value){
+                let validarEn = ['normal', 'declaracionEn0'];
+                let validar = validarEn.includes(this.configCostos.tipoTramite);
+                if(validar && this.enajentantes && this.enajentantes.length > 0){
+                    return this.porcentajeTotalCompra == value;
+                } else {
+                    return true;
+                }
+                
+            },
+            maxValue: maxValue(100)
+        }
+    }
+
+    
+    //computed 
+    const listaCurps = computed(() =>{
+        return this.enajentantes.map( enajentante => enajentante.datosPersonales.curp );
+    })
+
+
+    const montoGlobalOperacion = computed(() =>{
+        return  this.configCostos.montoOperacion ? Vue.filter('formatoMoneda')(this.configCostos.montoOperacion +"") : false;
+    })
+
+    const pertmiteEliminarEnajenante = computed(()=>{
+        let tiposPuedenEliminar = ['normal', 'declaracionEn0'];
+        return tiposPuedenEliminar.includes(this.configCostos.tipoTramite);
+    })
+
+    const puedeAgregarEnajenante = computed(() => {
+        let tiposPuedenEliminar = ['normal', 'declaracionEn0'];
+        return tiposPuedenEliminar.includes(this.configCostos.tipoTramite);               
+    })
+
+
 
     const enajentantes = []
     const porcentajeTotalCompra = 0
@@ -75,9 +123,9 @@
         let validarEn = ['normal', 'declaracionEn0'];
         let validar = validarEn.includes(configCostos.tipoTramite);
         if(validar){
-            campo.valido =  porcentajeTotalCompra == $v.porcentajeVenta.$model;
+            campo.value.valido =  porcentajeTotalCompra == $v.porcentajeVenta.$model;
         } else {
-            campo.valido =  enajentantes && enajentantes.length > 0;
+            campo.value.valido =  enajentantes && enajentantes.length > 0;
         }
         
 
@@ -89,8 +137,8 @@
                 this.campo.valido = false;
             }
         }*/
-        campo.valor = valor;
-        emit('updateForm', campo);
+        campo.value.valor = valor;
+        emit('updateForm', campo.value);
     
     }
 

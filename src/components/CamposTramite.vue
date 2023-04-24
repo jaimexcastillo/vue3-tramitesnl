@@ -1,5 +1,6 @@
 <script setup>
 import { getCurrentInstance, ref, toRefs } from "vue";
+
     const instance = getCurrentInstance();
     const emit = defineEmits(["updatingScore","updatingFiles"])
     const mostrar = ref(true)
@@ -388,32 +389,34 @@ import { getCurrentInstance, ref, toRefs } from "vue";
 													:estadoFormulario="comprobarEstadoFormularioCount"
 													@updateForm="updateForm" :configCostos="configCostos" :updateListadoExpedientes="updateListadoExpedientes" 
                                                 />	
-												<!--<table-component 
+												<Table 
 													:propietario="JSON.parse(campo.caracteristicas).propietario"
 													:campo="campo"
 													:expediente="expediente"
 													v-on:porcentaje="updatePorcentaje($event)"
 													:porcentajeFinal="progress"
 													@updateForm="updateForm"
-													v-else-if="campo.tipo == 'table'">
-												</table-component>
-												<fecha-component v-if="campo.tipo === 'date'" 
+													v-else-if="campo.tipo == 'table'"
+                                                />
+												<Fecha v-if="campo.tipo === 'date'" 
 													:campo="campo" 
 													:showMensajes="showMensajes" 
 													:estadoFormulario="comprobarEstadoFormularioCount"
-													@updateForm="updateForm"></fecha-component>
-												<listado-expedientes-5-i-s-r 
+													@updateForm="updateForm"
+                                                />
+												<ListadoExpedientes5isr 
 													v-else-if="campo.tipo === 'expedientes'"
 													:campo="campo" 
 													:showMensajes="showMensajes" 
 													:estadoFormulario="comprobarEstadoFormularioCount"
-													@updateForm="updateForm" :usuario="usuario"></listado-expedientes-5-i-s-r>
-			 									<valuador-component v-if="campo.tipo === 'valuador'" 
+													@updateForm="updateForm" :usuario="usuario"
+                                                />
+			 									<Valuador v-if="campo.tipo === 'valuador'" 
 			 										:campo="campo" 
 													:showMensajes="showMensajes" 
 													:estadoFormulario="comprobarEstadoFormularioCount"
-													@updateForm="updateForm">
-			 									</valuador-component> -->
+													@updateForm="updateForm"
+                                                />
 			 								</div>
 		 									<div v-if="agrupacion.tieneSeccionDocumentos" class="col-md-12 col-lg-12">
 		 										<div class="text-left">

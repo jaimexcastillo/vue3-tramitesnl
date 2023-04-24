@@ -27,6 +27,10 @@ import File from './components/File.vue'
 import Results from './components/Results.vue'
 import ExpedienteExcel from './components/ExpedienteExcel.vue'
 import Enajenantes from './components/Enajenantes.vue'
+import Table from  './components/Table.vue'
+import Fecha from './components/Fecha.vue'
+import ListadoExpedientes5isr from './components/ListadoExpedientes5isr.vue'
+import Valuador from './components/Valuador.vue'
 
 import router from './router'
 
@@ -66,7 +70,10 @@ app
     .component('Results', Results)
     .component('ExpedienteExcel', ExpedienteExcel)
     .component('Enajenantes', Enajenantes)
-
+    .component('Table', Table)
+    .component('Fecha', Fecha)
+    .component('ListadoExpedientes5isr', ListadoExpedientes5isr)
+    .component('Valuador', Valuador )
 
 app 
     .use(pinia)
